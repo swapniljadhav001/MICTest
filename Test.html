@@ -1,0 +1,118 @@
+<html>
+
+<head>
+<style>
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #333;
+  overflow: hidden;
+}
+
+.play-button {
+  width: 152px;
+  height: 152px;
+  position: relative;
+  cursor: pointer;
+}
+
+.play-backdrop {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: #000;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.play-close {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 15px);
+  border: none;
+  outline: none;
+  background: none;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.play-close::before,
+.play-close::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: rotate(45deg);
+  background-color: #fff;
+}
+
+.play-close::after {
+  transform: rotate(-45deg);
+}
+
+.play-circles {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.play-perspective {
+  width: 600px;
+  height: 400px;
+  position: absolute;
+  left: -1000px;
+  top: -125px;
+  display: none;
+}
+
+.play-triangle {
+  width: 600px;
+  height: 400px;
+  background-color: #fff;
+  cursor: pointer;
+}
+</style>
+</head>
+
+
+<body>
+<div>
+<div style="padding-left:100px;" class="play-backdrop"></div>
+<button >Start Animation</button>
+</div>
+<img src="./blackberries.jpg" alt="blackberries" width="600" height="400">
+<div class="play-button">
+  <div class="play-perspective">
+    <button class="play-close"></button>
+    <div class="play-triangle">
+      <div class="play-video">
+        <iframe width="600" height="400" src="https://www.youtube.com/embed/rw4K9HXTWcE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script> 
+$(document).ready(function(){
+  $("button").click(function(){
+	$(".play-perspective").show();
+    $(".play-perspective").animate({left: '-600px'});
+  });
+});
+</script> 
+
+
+</body>
+</html>
